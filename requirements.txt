@@ -34,3 +34,4 @@ pyyaml>=6.0.0
 # Qualidade de Código (Opcional)
 black>=23.7.0
 flake8>=6.1.0
+

@@ -26,3 +26,4 @@ Consulte o documento completo [DATA.md](../../DATA.md) para detalhes exaustivos 
 3. **Dataset 3:** Descarregue os ficheiros e coloque-os na pasta `data/dataset3/`.
 
 Caso utilize a API da Kaggle, configure as suas credenciais no ficheiro `.env` a partir do template `.env.example`.
+

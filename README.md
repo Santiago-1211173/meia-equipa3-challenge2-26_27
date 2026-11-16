@@ -178,3 +178,4 @@ Para manter o repositório organizado e com histórico limpo:
 - **Ramos de Funcionalidade (`feature/<nome-da-tarefa>`):** Desenvolva novas análises ou módulos em *feature branches* e integre através de Pull/Merge Requests.
 - **Commits Semânticos:** Utilize mensagens convencionais (ex.: `feat:`, `fix:`, `docs:`, `chore:`, `refactor:`).
 - **Limpeza de Notebooks:** Antes de commitar notebooks, limpe as saídas com excesso de dados (`Clear All Outputs`) caso contenham saídas sensíveis ou muito extensas.
+
