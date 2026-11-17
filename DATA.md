@@ -4,45 +4,51 @@
 
 O presente documento formaliza os critérios metodológicos de avaliação e seleção dos conjuntos de dados (*datasets*) a adotar pela **Equipa 3** no âmbito do **Challenge 2** do MEIA (ISEP), articulando as unidades curriculares de **AAUTIA** (Aprendizagem Automática) e **PLNTDIA** (Planeamento e Tomada de Decisão Inteligente).
 
-### 1.1 Objetivo Analítico e Requisitos do Negócio
+### 1.1 Alinhamento com o Feedback da Equipa Docente
 
-A solução a desenvolver visa determinar a política ideal de descontos e remarcações (*markdown optimization*) para peças de vestuário, considerando o tempo de permanência em loja, a rotação de coleções sazonais e o escoamento de inventário, evitando simultaneamente:
-- O custo de retenção de capital em inventário estagnado (*holding cost* e depreciação);
-- A desvalorização excessiva ou extemporânea da peça, preservando uma margem líquida positiva (*margin preservation*).
+Na sequência da orientação com o corpo docente, foi determinado que o escopo de dados deve centrar-se **estrita e exclusivamente no ecossistema de retalho de moda e vestuário (*fashion retail & fast fashion*)**, excluindo categorias genéricas de supermercados ou grandes superfícies (como Walmart ou retalho geral indiferenciado).
 
-### 1.2 Critérios de Elegibilidade dos Datasets
+Esta diretriz permite:
+- Modelar o comportamento de coleções e peças sujeitas a ciclos de vida curtos e forte sazonalidade;
+- Refletir com autenticidade a dinâmica de atributos de produto (cor, tamanho, tipo de corte, tecido, estação);
+- Estudar a pressão real de escoamento de inventário para libertação de capital de giro em loja física e canais digitais.
 
-Para viabilizar a modelação preditiva e a otimização de decisões, os datasets candidatos devem cumprir os seguintes requisitos:
+### 1.2 Objetivo Analítico e Requisitos do Negócio
 
-1. **Domínio e Atributos de Produto:** Conter dados do setor de retalho (preferencialmente têxtil/vestuário), com categorização dos artigos (ex.: categoria, departamento, género, estilo, cor, tamanho).
-2. **Dimensão de Preço e Desconto:** Conter valores de preço base (*original price* / *MRP*), preço de venda efetivo (*selling price*) e/ou percentagem de desconto aplicada.
-3. **Dimensão Temporal e Inventário:** Permitir o cálculo ou extração do tempo de permanência em loja (*days on shelf* / *age in store*), data da transação, sazonalidade e unidades vendidas face ao stock remanescente.
-4. **Viabilidade Científica (Google Scholar):** Existência prévia de literatura académica e artigos indexados que utilizem o dataset ou abordem o mesmo problema no mesmo contexto de dados, permitindo a cada par de trabalho recolher no mínimo 3 artigos para o Estado da Arte de PLNTDIA.
+A solução visa definir a política ótima de descontos e remarcações (*markdown optimization*) para peças de vestuário em função do tempo de permanência em loja/catálogo, prevenindo:
+- **Custo de Inventário Parado e Retenção de Capital:** Imobilização prolongada de recursos financeiros e espaço de armazenamento em produtos com saída estagnada;
+- **Erosão da Margem e Desvalorização Excessiva:** Descontos extemporâneos ou excessivos que eliminem a margem de contribuição líquida da peça ou gerem prejuízo operacional.
+
+### 1.3 Critérios de Elegibilidade dos Datasets
+
+1. **Domínio Exclusivo de Moda:** Marcas de vestuário ou plataformas especializadas em moda (*apparel, footwear, accessories*).
+2. **Preço de Referência e Desconto:** Existência de preço base/recomendado (*original price* / *MRP*), preço de venda efetivo (*selling price*) e/ou percentagem de desconto aplicada.
+3. **Temporalidade e Ciclo de Vida:** Possibilidade de inferir ou ler diretamente o tempo de exposição (*days on shelf* / *age in store*), a coleção sazonal e o ritmo de escoamento.
+4. **Viabilidade Científica (Google Scholar):** Disponibilidade prévia de literatura académica e estudos indexados onde o dataset (ou a metodologia sobre a marca) seja analisado, viabilizando a recolha de pelo menos 3 artigos por par de estudantes.
 
 ---
 
-## 2. Catálogo de Candidatos: 5 Datasets em Avaliação
+## 2. Catálogo Especializado: 5 Datasets de Moda e Vestuário
 
-Apresenta-se de seguida a análise detalhada de 5 datasets de referência disponíveis publicamente, selecionados pela sua relevância para o problema de remarcações dinâmicas e rotatividade de stocks.
+Apresenta-se a análise técnica de 5 datasets de referência dedicados ao retalho de moda, integrando grandes marcas multinacionais e plataformas digitais de vestuário.
 
 ---
 
 ### Dataset Candidato 1: H&M Personalized Fashion Recommendations
 - **Origem / Repositório:** Kaggle (H&M Group)
 - **Acesso:** https://www.kaggle.com/competitions/h-and-m-personalized-fashion-recommendations/data
-- **Dimensão e Cobertura:** Mais de 31 milhões de transações de compra, 105.000 artigos de moda e 1,3 milhões de clientes entre 2018 e 2020.
+- **Dimensão e Cobertura:** Mais de 31 milhões de transações, 105.000 artigos de moda e 1,3 milhões de clientes (2018–2020).
 - **Campos Principais:**
-  - `transactions_train.csv`: `t_dat` (data da compra), `customer_id`, `article_id`, `price` (preço transacionado normalizado), `sales_channel_id`.
+  - `transactions_train.csv`: `t_dat` (data da transação), `customer_id`, `article_id`, `price` (preço transacionado normalizado), `sales_channel_id`.
   - `articles.csv`: `article_id`, `product_code`, `prod_name`, `product_type_name`, `product_group_name`, `graphical_appearance_name`, `colour_group_name`, `perceived_colour_value_name`, `department_name`, `index_name`, `section_name`, `garment_group_name`, `detail_desc`.
 - **Aplicabilidade ao Problema:**
-  - Permite rastrear o ciclo de vida temporal de cada artigo desde a sua introdução no catálogo até à última venda.
-  - O campo `price` reflete variações ao longo do tempo para o mesmo `article_id`, permitindo inferir quando ocorreram reduções de preço e a correspondente aceleração ou desaceleração do volume de vendas.
-  - Riqueza ímpar de metadados visuais e categoriais de moda.
-- **Pontos Fortes:** Dados reais de um dos maiores retalhistas globais de *fast fashion*; volume robusto de literatura no Google Scholar.
-- **Limitações:** Requer agregação temporal e derivação explícita do nível inicial de inventário (estimável através do somatório de vendas do ciclo de vida da peça).
+  - Permite acompanhar a curva temporal de vendas de cada SKU desde a introdução em catálogo até ao escoamento final.
+  - A variação do campo `price` ao longo das semanas reflete a aplicação de remarcações graduais e permite medir a elasticidade da procura por departamento de vestuário.
+- **Pontos Fortes:** Dados reais de transações de um dos maiores grupos mundiais de retalho de moda; metadados descritivos detalhados.
+- **Limitações:** Requer agregação temporal dos registos para derivar o inventário inicial estimado e a cadência semanal de vendas.
 - **Termos de Pesquisa para o Google Scholar:**
   - `"H&M dataset" AND ("markdown" OR "dynamic pricing" OR "demand forecasting")`
-  - `"H&M personalized fashion" AND "inventory" OR "price elasticity"`
+  - `"H&M personalized fashion" AND "price elasticity"`
   - `"fast fashion retail" "H&M" "sales velocity" transaction data`
 
 ---
@@ -50,19 +56,19 @@ Apresenta-se de seguida a análise detalhada de 5 datasets de referência dispon
 ### Dataset Candidato 2: Zara Sales & Brand Performance Dataset
 - **Origem / Repositório:** Kaggle ("ZARA Sales: Predicting Sales Volume & Brand Performance" / "Zara Sales for EDA")
 - **Acesso:** https://www.kaggle.com/datasets (pesquisa: `zara sales eda product position promotion`)
-- **Dimensão e Cobertura:** Catálogo estruturado de produtos de moda Zara com registo de preços, promoções e volume de vendas.
+- **Dimensão e Cobertura:** Catálogo de artigos de moda da Zara com métricas de desempenho de vendas, atributos de produto e políticas promocionais.
 - **Campos Principais:**
   - `Product ID`, `Product Name`, `Description`, `Product Category` / `Section` (Mulher, Homem, Criança, etc.).
   - `Price`, `Currency`.
-  - `Sales Volume` (quantidade agregada transacionada).
+  - `Sales Volume` (volume de vendas registado).
   - `Promotion` (variável indicadora de aplicação de desconto/promoção).
   - `Seasonal` (indicador de coleção sazonal / rotatividade temporal).
-  - `Product Position` (posicionamento da peça em loja/catálogo).
+  - `Product Position` (posicionamento da peça em loja física e montra digital).
 - **Aplicabilidade ao Problema:**
-  - Fornece diretamente os atributos essenciais para classificação e regressão rápida em AAUTIA: relação direta entre preço, promoção ativa e volume de vendas.
-  - Modela diretamente a transição entre artigos de preço regular e artigos sob promoção sazonal.
-- **Pontos Fortes:** Foco direto no modelo de negócio *fast fashion* da Zara (referência em rápida rotação de stocks); estrutura tabular limpa e imediata de manipular.
-- **Limitações:** Dados agregados em termos temporais comparativamente a registos transacionais granulares por segundo/minuto.
+  - Exemplifica o modelo clássico de *fast fashion* de rotação rápida de montra da Inditex.
+  - Permite correlacionar diretamente o efeito de ativar promoções com o aumento no volume de escoamento e a posição da peça.
+- **Pontos Fortes:** Foco direto no modelo da Zara; estrutura tabular limpa e imediata para classificação e regressão rápida em AAUTIA.
+- **Limitações:** Volume agregado de transações em vez de séries temporais minuto-a-minuto.
 - **Termos de Pesquisa para o Google Scholar:**
   - `"Zara" AND ("fast fashion" OR "markdown optimization") AND "sales volume"`
   - `"dynamic pricing" "apparel" "Zara" promotion sales`
@@ -70,132 +76,127 @@ Apresenta-se de seguida a análise detalhada de 5 datasets de referência dispon
 
 ---
 
-### Dataset Candidato 3: Retail Markdown Optimization: Discounts & Sales
-- **Origem / Repositório:** Kaggle ("Retail Markdown Optimization: Discounts & Sales")
-- **Acesso:** https://www.kaggle.com/datasets (pesquisa: `retail markdown optimization discounts sales`)
-- **Dimensão e Cobertura:** Dados estruturados para problemas de otimização de remarcações, impacto de descontos e cadência de escoamento.
+### Dataset Candidato 3: ASOS E-Commerce & Dynamic Pricing Dataset
+- **Origem / Repositório:** Kaggle / ASOS Web Scraping Archive
+- **Acesso:** https://www.kaggle.com/datasets (pesquisa: `asos ecommerce products price discount`)
+- **Dimensão e Cobertura:** Mais de 30.000 artigos de moda catalogados com preços históricos, preços recomendados de tabela e percentagens de desconto aplicadas.
 - **Campos Principais:**
-  - `Item_ID`, `Category`, `Sub_Category`.
-  - `Original_Price`, `Discount_Rate` / `Markdown_Depth`, `Current_Price`.
-  - `Units_Sold` / `Sales_Velocity`, `Inventory_Remaining` / `Stock_Level`.
-  - `Days_In_Store` / `Time_On_Shelf`, `Collection_Season`.
-  - `Gross_Margin`, `Holding_Cost_Rate`.
+  - `product_id`, `brand_name`, `product_type`, `category_name`.
+  - `current_price` (preço efetivo de venda).
+  - `previous_price` / `rrp` (preço recomendado original sem desconto).
+  - `is_marked_down` (indicador booleano de artigo em saldo/promoção).
+  - `discount_percentage` (profundidade percentual do desconto concedido).
+  - `colour`, `sizes_available` (grade de tamanhos em stock remanescente).
 - **Aplicabilidade ao Problema:**
-  - Corresponde com rigor formal à função objetivo de PLNTDIA: possui o tempo de prateleira (`Days_In_Store`), o stock remanescente, o desconto atribuído e a velocidade de venda.
-  - Permite formular diretamente modelos de programação matemática (Programação Linear Inteira, Algoritmos Genéticos, MDP) e calcular o risco de rutura vs. encalhe.
-- **Pontos Fortes:** Métricas nativas de retenção de capital e margem bruta; desenho específico para o dilema de *markdown*.
-- **Limitações:** Conjunto de dados focado em contexto promocional, podendo exigir enriquecimento de atributos descritivos do produto.
+  - Modela diretamente o desfasamento entre o preço base e a remarcação necessária para escoar o artigo.
+  - A variável `sizes_available` permite analisar a questão das quebras de sortido (*broken size curves*), fator crítico que acelera o encalhe de peças de roupa e obriga a liquidação agressiva.
+- **Pontos Fortes:** Fornece explicitamente o preço original e a percentagem de desconto; fundamentação académica extensa por via dos artigos publicados pela própria equipa de investigação da ASOS.
+- **Limitações:** Necessidade de harmonizar categorias de vestuário e filtrar artigos de acessórios não têxteis se pretendido.
 - **Termos de Pesquisa para o Google Scholar:**
-  - `"retail markdown optimization" "days on shelf" inventory clearance`
-  - `"dynamic markdown" "apparel" "holding cost" mathematical optimization`
-  - `"clearance pricing" "fast fashion" OR "retail" "genetic algorithm" OR "linear programming"`
+  - `"ASOS" AND ("dynamic pricing" OR "markdown optimization") AND "fashion retail"`
+  - `"causal machine learning" "markdown" "pricing" ASOS`
+  - `"fashion retail" "broken sizes" "clearance markdown" pricing`
 
 ---
 
-### Dataset Candidato 4: Walmart Retail Data Analytics (Store Sales & Markdowns)
-- **Origem / Repositório:** Kaggle (Walmart Recruiting - Store Sales Forecasting / Retail Data Analytics)
-- **Acesso:** https://www.kaggle.com/competitions/walmart-recruiting-store-sales-forecasting/data
-- **Dimensão e Cobertura:** 421.570 observações semanais cobrindo 45 lojas e 99 departamentos (incluindo vestuário e têxtil-lar) durante 3 anos consecutivos.
+### Dataset Candidato 4: Myntra Fashion Products & Dynamic Discounts Dataset
+- **Origem / Repositório:** Kaggle
+- **Acesso:** https://www.kaggle.com/datasets (pesquisa: `myntra fashion dataset mrp discount price`)
+- **Dimensão e Cobertura:** Mais de 40.000 a 100.000 produtos de vestuário abrangendo marcas globais de renome (Levi's, Nike, Puma, Mango, H&M, etc.).
 - **Campos Principais:**
-  - `Store`, `Dept` (departamento, permitindo isolar secções têxteis).
-  - `Date`, `Weekly_Sales`, `IsHoliday`.
-  - `MarkDown1`, `MarkDown2`, `MarkDown3`, `MarkDown4`, `MarkDown5` (valores anonimizados de descontos e remarcações promocionais).
-  - `Temperature`, `Fuel_Price`, `CPI`, `Unemployment`, `Size`, `Type`.
+  - `BrandName`, `ProductTitle`, `Category`, `SubCategory`.
+  - `MRP` (*Maximum Retail Price* — preço original de etiqueta sem desconto).
+  - `Price` / `DiscountedPrice` (preço de venda com desconto praticado).
+  - `DiscountPercent` (percentagem explícita de desconto concedido).
+  - `Season` (estação da coleção: Summer, Fall, Winter, Spring).
+  - `Gender`, `Rating`, `RatingCount`.
 - **Aplicabilidade ao Problema:**
-  - Benchmark clássico na literatura académica de séries temporais de retalho com intervenção promocional explícita.
-  - Permite avaliar o efeito cruzado de diferentes tipos de desconto (MarkDown1 a 5) sobre a aceleração de vendas semanais.
-- **Pontos Fortes:** Validação académica exaustiva (mais de 200 publicações no Google Scholar); dados temporais contínuos com registo de feriados e sazonalidade externa.
-- **Limitações:** Dados agregados à escala semanal por departamento, sem granularidade ao nível de SKU unitário.
+  - O campo `Season` permite identificar formalmente o ciclo da coleção e a urgência de escoamento antes da transição sazonal.
+  - A diferença entre `MRP` e `DiscountedPrice` espelha com exatidão a estratégia de remuneração e corte de preço por marca e por categoria de produto.
+- **Pontos Fortes:** Variável explícita de estação/coleção (`Season`); riqueza de marcas conceituadas; cálculo direto de margem e desconto.
+- **Limitações:** Focado em catálogo online; não apresenta séries de transações individuais por segundo.
 - **Termos de Pesquisa para o Google Scholar:**
-  - `"Walmart" "MarkDown1" "markdown" sales forecasting`
-  - `"retail markdown" "store sales forecasting" machine learning`
-  - `"promotional markdowns" "inventory" demand response Walmart`
+  - `"Myntra" AND "fashion" AND ("discount" OR "markdown" OR "price prediction")`
+  - `"apparel" "MRP" "selling price" discount optimization`
+  - `"fashion seasonal clearance" "price elasticity" "e-commerce"`
 
 ---
 
-### Dataset Candidato 5: Online Retail II (UCI Machine Learning Repository)
-- **Origem / Repositório:** UCI Machine Learning Repository / Kaggle
-- **Acesso:** https://archive.ics.uci.edu/dataset/502/online+retail+ii
-- **Dimensão e Cobertura:** 1.067.371 transações reais registadas entre 01/12/2009 e 09/12/2011 por um retalhista sediado no Reino Unido.
+### Dataset Candidato 5: Shein Fast-Fashion Pricing & Clearance Dataset
+- **Origem / Repositório:** Kaggle
+- **Acesso:** https://www.kaggle.com/datasets (pesquisa: `shein fashion pricing discount inventory`)
+- **Dimensão e Cobertura:** Milhares de registos de vestuário da plataforma líder em *ultra-fast fashion*.
 - **Campos Principais:**
-  - `Invoice` (número da fatura, prefixado com 'C' para devoluções/cancelamentos).
-  - `StockCode` (código identificador do produto).
-  - `Description` (descrição textual do produto).
-  - `Quantity` (número de unidades transacionadas).
-  - `InvoiceDate` (data e hora exata da transação).
-  - `Price` / `UnitPrice` (preço unitário do produto em libras).
-  - `Customer ID` (identificador único do cliente).
-  - `Country` (país de destino).
+  - `sku`, `title`, `category_name`, `subcategory`.
+  - `retail_price` (preço de referência inicial) e `sale_price` (preço promocional ativo).
+  - `discount_percentage` (percentagem de redução).
+  - `stock_status` / `inventory_remaining` (indicador de disponibilidade em armazém).
+  - `rating_count`, `reviews` (tração de mercado).
 - **Aplicabilidade ao Problema:**
-  - Permite derivar com precisão cirúrgica a primeira e a última aparição de cada código de produto (`StockCode`), estabelecendo o tempo de vida total em catálogo.
-  - Possibilita observar reduções graduais do `UnitPrice` ao longo das semanas de vida do produto e quantificar a resposta na `Quantity` vendida.
-- **Pontos Fortes:** Dataset real e verificado, amplamente aceite pela comunidade científica; permite analisar devoluções e cancelamentos reais.
-- **Limitações:** Catálogo misto de retalho (presentes, decoração e acessórios têxteis), exigindo filtragem de categorias se o foco for estritamente vestuário.
+  - Fornece o extremo da rapidez de rotação: produtos concebidos para ciclos de permanência de poucas semanas, onde a ausência de desconto rápido gera acumulação imediata de stock morto.
+  - Permite avaliar estratégias agressivas de *flash clearance* e escoamento rápido de lotes.
+- **Pontos Fortes:** Representa a fronteira tecnológica atual do retalho de vestuário hiper-rápido; contraste interessante com o retalho tradicional.
+- **Limitações:** Maior volatilidade e catálogo com menor ciclo de vida por peça.
 - **Termos de Pesquisa para o Google Scholar:**
-  - `"Online Retail II" "dynamic pricing" OR "markdown"`
-  - `"UCI" "Online Retail" "price elasticity" demand forecasting`
-  - `"Online Retail" transaction data "inventory turnover" "clearance"`
+  - `"Shein" AND ("fast fashion" OR "pricing strategy") AND ("discount" OR "inventory")`
+  - `"ultra-fast fashion" supply chain markdown optimization`
+  - `"clearance pricing" "apparel" short lifecycle demand forecasting`
 
 ---
 
-## 3. Matriz Comparativa dos Datasets Candidatos
+## 3. Matriz Comparativa dos Datasets Especializados em Moda
 
-| Critério de Avaliação | Dataset 1: H&M Transactions | Dataset 2: Zara Sales | Dataset 3: Retail Markdown Opt. | Dataset 4: Walmart Retail | Dataset 5: Online Retail II |
+| Critério de Avaliação | Dataset 1: H&M | Dataset 2: Zara | Dataset 3: ASOS | Dataset 4: Myntra | Dataset 5: Shein |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Domínio Central** | Moda / Fast Fashion | Moda / Fast Fashion | Retalho / Descontos | Grandes Superfícies | Retalho Geral / E-Commerce |
-| **Granularidade** | Transação (SKU e cliente) | Produto / Posição | SKU / Artigo | Semanal por Departamento | Transação (Linha de fatura) |
-| **Dados de Desconto** | Variação de preço no tempo | Flag de promoção | Desconto explícito (%) | 5 tipos de Markdown | Variação de preço unitário |
-| **Tempo em Loja** | Derivável por histórico | Variável sazonal | Explícito (`Days_In_Store`) | Eixo temporal contínuo | Derivável (`First/Last Date`) |
-| **Adequação AAUTIA (ML)** | Elevada (classif. e regressão) | Elevada (regressão direta) | Muito Elevada (predição contínua) | Elevada (séries temporais) | Elevada (predição de procura) |
-| **Adequação PLNTDIA (Decisão)**| Média/Elevada (requer agregação)| Média (otimização de catálogo) | Máxima (otimização analítica) | Elevada (alocação de markdown) | Elevada (políticas de preço) |
-| **Literatura no Scholar** | Muito Elevada | Elevada | Média/Elevada | Máxima | Máxima |
+| **Segmento de Retalho** | Fast Fashion Global | Fast Fashion de Loja/Online | Moda Digital Multimarca | Marketplace de Moda | Ultra-Fast Fashion |
+| **Granularidade** | Transação (SKU e cliente) | Produto / Posição de Loja | Produto / Tamanho | Produto / Coleção | SKU / Lote de Produção |
+| **Preço Base vs. Desconto** | Preço transacionado | Flag de promoção ativa | `rrp` vs. `current_price` | `MRP` vs. `DiscountedPrice`| `retail_price` vs. `sale_price` |
+| **Métrica de Desconto** | Derivável por histórico | Binária (Sim/Não) | `discount_percentage` (%) | `DiscountPercent` (%) | `discount_percentage` (%) |
+| **Dimensão Temporal / Ciclo**| Série temporal (`t_dat`) | Sazonalidade (`Seasonal`) | Quebra de tamanhos | Estação (`Season`) | Rotação hiper-rápida |
+| **Adequação AAUTIA (ML)** | Máxima (procura/elasticidade)| Elevada (classif./regressão) | Elevada (regressão causal) | Elevada (elasticidade/preço) | Elevada (previsão de vendas) |
+| **Adequação PLNTDIA (Decisão)**| Elevada (trajetórias preço) | Elevada (política catálogo) | Muito Elevada (regras saldo)| Muito Elevada (remarcação) | Muito Elevada (escoamento) |
+| **Cobertura Google Scholar** | Muito Elevada | Elevada | Elevada | Elevada | Média / Em expansão |
 
 ---
 
-## 4. Recomendações para a Seleção dos 3 Datasets Finais
+## 4. Recomendações Estratégicas para os 3 Datasets Finais
 
-Para assegurar complementaridade metodológica, diversidade de abordagem e cumprimento dos requisitos de AAUTIA e PLNTDIA, recomenda-se a seguinte tríade de datasets:
+Com a exclusão de conjuntos generalistas (como Walmart ou Online Retail II) e a convergência para um ecossistema 100% focado no setor têxtil, sugerem-se três configurações para a seleção final da equipa:
 
-1. **Dataset Principal de Retalho de Moda (H&M ou Zara):**
-   - Fornece a identidade visual e categorial autêntica do setor têxtil.
-   - Ideal para os módulos de classificação de categoria, identificação de artigos críticos e modelação de procura baseada em atributos estéticos/sazonais.
-2. **Dataset de Otimização Direta de Remarcações (Retail Markdown Optimization):**
-   - Fornece as variáveis nativas de controlo económico (`Days_In_Store`, `Stock_Level`, `Holding_Cost`, `Gross_Margin`).
-   - Permite implementar e testar de forma imediata os algoritmos de planeamento e pesquisa operacional de PLNTDIA (Branch and Bound, Algoritmos Genéticos, Programação Linear).
-3. **Dataset Transacional Granular ou Benchmark Académico (Online Retail II ou Walmart):**
-   - Garante séries temporais ricas para cálculo de elasticidade-preço contínua e previsão de vendas em AAUTIA.
-   - Proporciona cobertura bibliográfica exaustiva no Google Scholar, simplificando a fundamentação do artigo científico.
+### Opção Recomendada (Equilíbrio Multicanal e Sazonal)
+1. **H&M:** Base transacional detalhada com mais de 31 milhões de registos, garantindo uma modelação robusta de séries temporais e atributos de moda para AAUTIA.
+2. **Zara:** Caso de estudo icónico de *fast fashion* europeu com dados de posicionamento e rotatividade sazonal.
+3. **ASOS** ou **Myntra:** Fornece a comparação formal entre preço de tabela original (`MRP`/`RRP`) e o preço com desconto, com especificação explícita de coleção sazonal (`Season`) e quebra de tamanhos.
 
 ---
 
 ## 5. Estrutura Operacional dos 3 Pares de Trabalho
 
-Assim que os 3 datasets forem formalmente ratificados pela equipa, a alocação de trabalho e o levantamento no Google Scholar serão registados de acordo com o seguinte modelo:
+Com base na escolha dos 3 datasets da lista especializada, os pares de trabalho da equipa organizar-se-ão de acordo com o seguinte modelo formal de investigação:
 
 ### Par A
-- **Membros:** [Elemento 1] e [Elemento 2]
-- **Dataset Atribuído:** [Designação do Dataset Selecionado 1]
-- **Foco Técnico:** Limpeza, análise exploratória e modelação do comportamento da procura.
-- **Artigos do Google Scholar (Mínimo 3):**
-  1. *Artigo 1:* Título, Autores, Ano, Revista/Conferência, Resumo metodológico e relevância.
-  2. *Artigo 2:* Título, Autores, Ano, Revista/Conferência, Resumo metodológico e relevância.
-  3. *Artigo 3:* Título, Autores, Ano, Revista/Conferência, Resumo metodológico e relevância.
+- **Membros da Equipa:** [Elemento 1] e [Elemento 2]
+- **Dataset Atribuído:** H&M Personalized Fashion Recommendations
+- **Objetivo Técnico:** Pré-processamento, engenharia de atributos de moda e análise da elasticidade temporal de preços.
+- **Artigos Científicos Indexados (Google Scholar - Mínimo 3):**
+  1. *Artigo 1:* Título, Autores, Ano, Publicação, Contributo metodológico e relevância.
+  2. *Artigo 2:* Título, Autores, Ano, Publicação, Contributo metodológico e relevância.
+  3. *Artigo 3:* Título, Autores, Ano, Publicação, Contributo metodológico e relevância.
 
 ### Par B
-- **Membros:** [Elemento 3] e [Elemento 4]
-- **Dataset Atribuído:** [Designação do Dataset Selecionado 2]
-- **Foco Técnico:** Limpeza, análise exploratória e modelação do comportamento da procura.
-- **Artigos do Google Scholar (Mínimo 3):**
-  1. *Artigo 1:* Título, Autores, Ano, Revista/Conferência, Resumo metodológico e relevância.
-  2. *Artigo 2:* Título, Autores, Ano, Revista/Conferência, Resumo metodológico e relevância.
-  3. *Artigo 3:* Título, Autores, Ano, Revista/Conferência, Resumo metodológico e relevância.
+- **Membros da Equipa:** [Elemento 3] e [Elemento 4]
+- **Dataset Atribuído:** Zara Sales & Brand Performance Dataset
+- **Objetivo Técnico:** Análise do efeito de promoções, posicionamento de peças e rotação sazonal de stock.
+- **Artigos Científicos Indexados (Google Scholar - Mínimo 3):**
+  1. *Artigo 1:* Título, Autores, Ano, Publicação, Contributo metodológico e relevância.
+  2. *Artigo 2:* Título, Autores, Ano, Publicação, Contributo metodológico e relevância.
+  3. *Artigo 3:* Título, Autores, Ano, Publicação, Contributo metodológico e relevância.
 
 ### Par C
-- **Membros:** [Elemento 5] e [Elemento 6]
-- **Dataset Atribuído:** [Designação do Dataset Selecionado 3]
-- **Foco Técnico:** Limpeza, análise exploratória e modelação do comportamento da procura.
-- **Artigos do Google Scholar (Mínimo 3):**
-  1. *Artigo 1:* Título, Autores, Ano, Revista/Conferência, Resumo metodológico e relevância.
-  2. *Artigo 2:* Título, Autores, Ano, Revista/Conferência, Resumo metodológico e relevância.
-  3. *Artigo 3:* Título, Autores, Ano, Revista/Conferência, Resumo metodológico e relevância.
-
+- **Membros da Equipa:** [Elemento 5] e [Elemento 6]
+- **Dataset Atribuído:** ASOS Dynamic Pricing ou Myntra Fashion Products
+- **Objetivo Técnico:** Modelação de curvas de desconto face ao preço base (`MRP`/`RRP`) e escoamento por transição de estação.
+- **Artigos Científicos Indexados (Google Scholar - Mínimo 3):**
+  1. *Artigo 1:* Título, Autores, Ano, Publicação, Contributo metodológico e relevância.
+  2. *Artigo 2:* Título, Autores, Ano, Publicação, Contributo metodológico e relevância.
+  3. *Artigo 3:* Título, Autores, Ano, Publicação, Contributo metodológico e relevância.
