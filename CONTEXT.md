@@ -108,10 +108,10 @@ Para assegurar rigor científico e cumprimento integral dos requisitos pedagógi
 - Requisito de dados: Devem conter dados transacionais de retalho têxtil, com registo de preços praticados, percentagens de desconto/promoção, volumes de vendas, datas/períodos de exposição e níveis de inventário.
 
 ### Fase 2: Distribuição da Equipa por Pares
-A equipa de 6 elementos divide-se em 3 pares dedicados, atribuindo um *dataset* a cada par:
-- **Par A (2 elementos):** Análise exploratória e modelação do Dataset 1.
-- **Par B (2 elementos):** Análise exploratória e modelação do Dataset 2.
-- **Par C (2 elementos):** Análise exploratória e modelação do Dataset 3.
+A equipa de 6 elementos divide-se em 3 pares dedicados, atribuindo um *dataset* de moda a cada par:
+- **Par A (2 elementos):** Análise exploratória e modelação do Dataset 1 (H&M Personalized Fashion Recommendations), integrando Santiago da Mata Bossa (`1211173`) e parceiro a designar.
+- **Par B (2 elementos):** Análise exploratória e modelação do Dataset 2 (Zara Sales & Brand Performance).
+- **Par C (2 elementos):** Análise exploratória e modelação do Dataset 3 (ASOS Dynamic Pricing ou Myntra Fashion Products).
 
 ### Fase 3: Levantamento Bibliográfico e Estado da Arte (Google Scholar)
 - Cada par conduz uma pesquisa focada no Google Scholar com recurso a palavras-chave direcionadas (ex.: *"markdown optimization"*, *"dynamic pricing fashion retail"*, *"inventory clearance"*, *"demand forecasting price elasticity"* e a designação do respetivo dataset).

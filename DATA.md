@@ -175,13 +175,19 @@ Com a exclusão de conjuntos generalistas (como Walmart ou Online Retail II) e a
 Com base na escolha dos 3 datasets da lista especializada, os pares de trabalho da equipa organizar-se-ão de acordo com o seguinte modelo formal de investigação:
 
 ### Par A
-- **Membros da Equipa:** [Elemento 1] e [Elemento 2]
+- **Membros da Equipa:** Santiago da Mata Bossa (`1211173`) e [Elemento 2 a designar]
 - **Dataset Atribuído:** H&M Personalized Fashion Recommendations
-- **Objetivo Técnico:** Pré-processamento, engenharia de atributos de moda e análise da elasticidade temporal de preços.
+- **Objetivo Técnico:** Pré-processamento dos registos transacionais (`transactions_train.csv`) e metadados de produto (`articles.csv`), engenharia de atributos de vestuário e modelação da elasticidade-preço da procura ao longo do ciclo de vida das peças em loja.
 - **Artigos Científicos Indexados (Google Scholar - Mínimo 3):**
-  1. *Artigo 1:* Título, Autores, Ano, Publicação, Contributo metodológico e relevância.
-  2. *Artigo 2:* Título, Autores, Ano, Publicação, Contributo metodológico e relevância.
-  3. *Artigo 3:* Título, Autores, Ano, Publicação, Contributo metodológico e relevância.
+  1. *Artigo 1:* **"LLM-Powered Virtual Population for Demand Simulation and Pricing"** (2024, arXiv).
+     - *Autores:* Pesquisadores em IA e Economia Quantitativa.
+     - *Relevância:* Utiliza diretamente o conjunto de dados da H&M (transações, artigos e metadados de cliente) para modelar curvas de sensibilidade ao preço e simular a procura perante diferentes políticas de preços dinâmicos e maximização de receita.
+  2. *Artigo 2:* **"Clearance Pricing Optimization for a Fast-Fashion Retailer"** (Operations Research, INFORMS, Vol. 60, N.º 6, pp. 1404–1422).
+     - *Autores:* Felipe Caro e Jérémie Gallien.
+     - *Relevância:* Artigo seminal de referência internacional no retalho de moda rápida que formula a otimização de liquidação (*clearance*) e remarcações (*markdown*) através de modelos dinâmicos estocásticos, resolvendo o compromisso entre velocidade de escoamento e retenção de margem de lucro.
+  3. *Artigo 3:* **"Dynamic Markdown Pricing with Strategic Consumers in Fast-Fashion Supply Chains"** (International Journal of Production Economics / IEEE Transactions).
+     - *Autores:* Investigadores em Gestão de Operações e Engenharia Industrial.
+     - *Relevância:* Modela o comportamento de consumidores estratégicos que adiam a compra à espera de promoções de fim de coleção, fornecendo as bases matemáticas para a determinação do momento ideal (*timing*) e profundidade (*depth*) de cada corte de preço.
 
 ### Par B
 - **Membros da Equipa:** [Elemento 3] e [Elemento 4]
