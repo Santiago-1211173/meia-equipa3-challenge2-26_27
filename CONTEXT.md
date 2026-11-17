@@ -110,7 +110,7 @@ Para assegurar rigor científico e cumprimento integral dos requisitos pedagógi
 ### Fase 2: Distribuição da Equipa por Pares
 A equipa de 6 elementos divide-se em 3 pares dedicados, atribuindo um *dataset* de moda a cada par:
 - **Par A (2 elementos):** Análise exploratória e modelação do Dataset 1 (H&M Personalized Fashion Recommendations), integrando Santiago da Mata Bossa (`1211173`) e parceiro a designar.
-- **Par B (2 elementos):** Análise exploratória e modelação do Dataset 2 (Zara Sales & Brand Performance).
+- **Par B (2 elementos):** Análise exploratória e modelação do Dataset 2 (Zara Sales & Brand Performance), integrando João Vitor Carneiro Moreira (`1260436`) e parceiro a designar.
 - **Par C (2 elementos):** Análise exploratória e modelação do Dataset 3 (ASOS Dynamic Pricing ou Myntra Fashion Products).
 
 ### Fase 3: Levantamento Bibliográfico e Estado da Arte (Google Scholar)

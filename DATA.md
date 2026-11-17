@@ -178,31 +178,25 @@ Com base na escolha dos 3 datasets da lista especializada, os pares de trabalho 
 - **Membros da Equipa:** Santiago da Mata Bossa (`1211173`) e [Elemento 2 a designar]
 - **Dataset Atribuído:** H&M Personalized Fashion Recommendations
 - **Objetivo Técnico:** Pré-processamento dos registos transacionais (`transactions_train.csv`) e metadados de produto (`articles.csv`), engenharia de atributos de vestuário e modelação da elasticidade-preço da procura ao longo do ciclo de vida das peças em loja.
-- **Artigos Científicos Indexados (Google Scholar - Mínimo 3):**
-  1. *Artigo 1:* **"LLM-Powered Virtual Population for Demand Simulation and Pricing"** (2024, arXiv).
-     - *Autores:* Pesquisadores em IA e Economia Quantitativa.
-     - *Relevância:* Utiliza diretamente o conjunto de dados da H&M (transações, artigos e metadados de cliente) para modelar curvas de sensibilidade ao preço e simular a procura perante diferentes políticas de preços dinâmicos e maximização de receita.
-  2. *Artigo 2:* **"Clearance Pricing Optimization for a Fast-Fashion Retailer"** (Operations Research, INFORMS, Vol. 60, N.º 6, pp. 1404–1422).
-     - *Autores:* Felipe Caro e Jérémie Gallien.
-     - *Relevância:* Artigo seminal de referência internacional no retalho de moda rápida que formula a otimização de liquidação (*clearance*) e remarcações (*markdown*) através de modelos dinâmicos estocásticos, resolvendo o compromisso entre velocidade de escoamento e retenção de margem de lucro.
-  3. *Artigo 3:* **"Dynamic Markdown Pricing with Strategic Consumers in Fast-Fashion Supply Chains"** (International Journal of Production Economics / IEEE Transactions).
-     - *Autores:* Investigadores em Gestão de Operações e Engenharia Industrial.
-     - *Relevância:* Modela o comportamento de consumidores estratégicos que adiam a compra à espera de promoções de fim de coleção, fornecendo as bases matemáticas para a determinação do momento ideal (*timing*) e profundidade (*depth*) de cada corte de preço.
+- **Artigos Científicos Indexados (Google Scholar - Mínimo 3 a pesquisar pelo par):**
+  1. *Artigo 1:* [Título, Autores, Ano, Publicação, Contributo metodológico e relevância — a preencher pelo par]
+  2. *Artigo 2:* [Título, Autores, Ano, Publicação, Contributo metodológico e relevância — a preencher pelo par]
+  3. *Artigo 3:* [Título, Autores, Ano, Publicação, Contributo metodológico e relevância — a preencher pelo par]
 
 ### Par B
-- **Membros da Equipa:** [Elemento 3] e [Elemento 4]
+- **Membros da Equipa:** João Vitor Carneiro Moreira (`1260436`) e [Elemento 2 a designar]
 - **Dataset Atribuído:** Zara Sales & Brand Performance Dataset
-- **Objetivo Técnico:** Análise do efeito de promoções, posicionamento de peças e rotação sazonal de stock.
-- **Artigos Científicos Indexados (Google Scholar - Mínimo 3):**
-  1. *Artigo 1:* Título, Autores, Ano, Publicação, Contributo metodológico e relevância.
-  2. *Artigo 2:* Título, Autores, Ano, Publicação, Contributo metodológico e relevância.
-  3. *Artigo 3:* Título, Autores, Ano, Publicação, Contributo metodológico e relevância.
+- **Objetivo Técnico:** Modelação preditiva do impacto de promoções no volume de vendas, análise da rotação sazonal de catálogo (*fast fashion*) e otimização da política de descontos para liquidação atempada de stock.
+- **Artigos Científicos Indexados (Google Scholar - Mínimo 3 a pesquisar pelo par):**
+  1. *Artigo 1:* [Título, Autores, Ano, Publicação, Contributo metodológico e relevância — a preencher pelo par]
+  2. *Artigo 2:* [Título, Autores, Ano, Publicação, Contributo metodológico e relevância — a preencher pelo par]
+  3. *Artigo 3:* [Título, Autores, Ano, Publicação, Contributo metodológico e relevância — a preencher pelo par]
 
 ### Par C
 - **Membros da Equipa:** [Elemento 5] e [Elemento 6]
 - **Dataset Atribuído:** ASOS Dynamic Pricing ou Myntra Fashion Products
 - **Objetivo Técnico:** Modelação de curvas de desconto face ao preço base (`MRP`/`RRP`) e escoamento por transição de estação.
-- **Artigos Científicos Indexados (Google Scholar - Mínimo 3):**
-  1. *Artigo 1:* Título, Autores, Ano, Publicação, Contributo metodológico e relevância.
-  2. *Artigo 2:* Título, Autores, Ano, Publicação, Contributo metodológico e relevância.
-  3. *Artigo 3:* Título, Autores, Ano, Publicação, Contributo metodológico e relevância.
+- **Artigos Científicos Indexados (Google Scholar - Mínimo 3 a pesquisar pelo par):**
+  1. *Artigo 1:* [Título, Autores, Ano, Publicação, Contributo metodológico e relevância — a preencher pelo par]
+  2. *Artigo 2:* [Título, Autores, Ano, Publicação, Contributo metodológico e relevância — a preencher pelo par]
+  3. *Artigo 3:* [Título, Autores, Ano, Publicação, Contributo metodológico e relevância — a preencher pelo par]
