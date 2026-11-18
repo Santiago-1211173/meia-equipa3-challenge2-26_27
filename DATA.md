@@ -184,7 +184,7 @@ Com base na escolha dos 3 datasets da lista especializada, os pares de trabalho 
   3. *Artigo 3:* [Título, Autores, Ano, Publicação, Contributo metodológico e relevância — a preencher pelo par]
 
 ### Par B
-- **Membros da Equipa:** João Vitor Carneiro Moreira (`1260436`) e [Elemento 2 a designar]
+- **Membros da Equipa:** João Vitor Carneiro Moreira (`1260436`) e Rômulo Semião Arantes (`1260446`)
 - **Dataset Atribuído:** Zara Sales & Brand Performance Dataset
 - **Objetivo Técnico:** Modelação preditiva do impacto de promoções no volume de vendas, análise da rotação sazonal de catálogo (*fast fashion*) e otimização da política de descontos para liquidação atempada de stock.
 - **Artigos Científicos Indexados (Google Scholar - Mínimo 3 a pesquisar pelo par):**
