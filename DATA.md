@@ -188,9 +188,9 @@ Com base na escolha dos 3 datasets da lista especializada, os pares de trabalho 
 - **Dataset Atribuído:** Zara Sales & Brand Performance Dataset
 - **Objetivo Técnico:** Modelação preditiva do impacto de promoções no volume de vendas, análise da rotação sazonal de catálogo (*fast fashion*) e otimização da política de descontos para liquidação atempada de stock.
 - **Artigos Científicos Indexados (Google Scholar - Mínimo 3 a pesquisar pelo par):**
-  1. *Artigo 1:* [Título, Autores, Ano, Publicação, Contributo metodológico e relevância — a preencher pelo par]
-  2. *Artigo 2:* [Título, Autores, Ano, Publicação, Contributo metodológico e relevância — a preencher pelo par]
-  3. *Artigo 3:* [Título, Autores, Ano, Publicação, Contributo metodológico e relevância — a preencher pelo par]
+  1. *Artigo 1:* **Clearance Pricing Optimization for a Fast-Fashion Retailer** — Felipe Caro & Jérémie Gallien (2012), *Operations Research*. Modelo de previsão de procura e otimização de preços de liquidação implementado na Zara (aumento de ~6% na receita de saldos); referência base do domínio, embora os dados POS originais sejam proprietários.
+  2. *Artigo 2:* **Initial Shipment Decisions for New Products at Zara** — Jérémie Gallien, Adam J. Mersereau, Andres Garro, Alberte Dapena Mora & Martín Nóvoa Vidal (2015), *Operations Research*. Experiência de campo na Zara combinando aprendizagem dinâmica da procura de novos produtos com otimização da alocação inicial em loja (+2% vendas, -4% stock não vendido no fim da estação); complementa o domínio de gestão de stock antes dos saldos, com dados proprietários.
+  3. *Artigo 3:* **An Empirical Analysis of In-Store Product Placement and Sales Volume Across Product Categories**, *IJSSRR*. Análise empírica baseada no dataset público da Zara (Kaggle) sobre o impacto do posicionamento em loja e promoções no volume de vendas; útil para explorar atributos de produto, mas evidencia a falta de histórico temporal contínuo de preços e stock.
 
 ### Par C
 - **Membros da Equipa:** [Elemento 5] e [Elemento 6]
